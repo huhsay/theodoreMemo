@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4235302FD5EF382ECE152981 /* Memo.m in Sources */ = {isa = PBXBuildFile; fileRef = 42353C20A50D2F9C7FA27B84 /* Memo.m */; };
+		4235367E4C0E55F514E1ADFB /* MemoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42353E5C34C8C3D11473F817 /* MemoListTableViewController.m */; };
 		52D6FED423E3D2BE00377D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D6FED323E3D2BE00377D34 /* AppDelegate.m */; };
 		52D6FED723E3D2BE00377D34 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D6FED623E3D2BE00377D34 /* SceneDelegate.m */; };
 		52D6FEDA23E3D2BE00377D34 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D6FED923E3D2BE00377D34 /* ViewController.m */; };
@@ -19,7 +20,9 @@
 
 /* Begin PBXFileReference section */
 		4235384CEF7C946509EDB8F0 /* Memo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memo.h; sourceTree = "<group>"; };
+		42353BCAD898319E8435CD09 /* MemoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoListTableViewController.h; sourceTree = "<group>"; };
 		42353C20A50D2F9C7FA27B84 /* Memo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Memo.m; sourceTree = "<group>"; };
+		42353E5C34C8C3D11473F817 /* MemoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoListTableViewController.m; sourceTree = "<group>"; };
 		52D6FECF23E3D2BE00377D34 /* theodoreMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theodoreMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6FED223E3D2BE00377D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52D6FED323E3D2BE00377D34 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				52D6FEE323E3D2C000377D34 /* Info.plist */,
 				52D6FEE423E3D2C000377D34 /* main.m */,
 				42353043D3FD4E6911C921FD /* Model */,
+				42353E5C34C8C3D11473F817 /* MemoListTableViewController.m */,
+				42353BCAD898319E8435CD09 /* MemoListTableViewController.h */,
 			);
 			path = theodoreMemo;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				52D6FEE523E3D2C000377D34 /* main.m in Sources */,
 				52D6FED723E3D2BE00377D34 /* SceneDelegate.m in Sources */,
 				4235302FD5EF382ECE152981 /* Memo.m in Sources */,
+				4235367E4C0E55F514E1ADFB /* MemoListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
