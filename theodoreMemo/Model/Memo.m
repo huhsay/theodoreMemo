@@ -14,8 +14,9 @@
     self = [super init];
     if (self != nil) {
         self.content = content;
+        self.insertDate = [NSDate date];
     }
-    return nil;
+    return self;
 }
 
 + (NSArray *)dummyMemoList {
