@@ -186,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="1738" y="88"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose View Controller-->
         <scene sceneID="PdX-at-1D5">
             <objects>
-                <viewController id="94b-TY-uMZ" sceneMemberID="viewController">
+                <viewController id="94b-TY-uMZ" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XCE-2g-Xbl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,7 +198,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="new memo" id="cnr-0O-pE4">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b5r-Fd-PcJ"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b5r-Fd-PcJ">
+                                            <connections>
+                                                <action selector="close:" destination="94b-TY-uMZ" id="Sfa-tT-TAR"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="SNr-Of-iR4"/>
                                     </navigationItem>
                                 </items>
