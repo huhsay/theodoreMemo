@@ -158,7 +158,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Memo" largeTitleDisplayMode="always" id="wZT-XG-AiK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4Iy-X5-FSz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4Iy-X5-FSz">
+                            <connections>
+                                <segue destination="94b-TY-uMZ" kind="presentation" modalPresentationStyle="automatic" id="b4j-L7-EOL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bra-gI-Noh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,6 +185,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLK-bX-fKg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1738" y="88"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PdX-at-1D5">
+            <objects>
+                <viewController id="94b-TY-uMZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XCE-2g-Xbl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSK-hC-7Mp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="new memo" id="cnr-0O-pE4">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b5r-Fd-PcJ"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SNr-Of-iR4"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vw8-7c-fNw">
+                                <rect key="frame" x="5" y="61" width="404" height="742"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5NE-YL-6CE" firstAttribute="trailing" secondItem="Vw8-7c-fNw" secondAttribute="trailing" constant="5" id="0yV-NO-qf7"/>
+                            <constraint firstItem="Vw8-7c-fNw" firstAttribute="leading" secondItem="5NE-YL-6CE" secondAttribute="leading" constant="5" id="3bC-So-UaN"/>
+                            <constraint firstItem="bSK-hC-7Mp" firstAttribute="trailing" secondItem="5NE-YL-6CE" secondAttribute="trailing" id="Icb-dW-6pD"/>
+                            <constraint firstItem="bSK-hC-7Mp" firstAttribute="top" secondItem="5NE-YL-6CE" secondAttribute="top" id="UXl-MK-qwd"/>
+                            <constraint firstItem="Vw8-7c-fNw" firstAttribute="top" secondItem="bSK-hC-7Mp" secondAttribute="bottom" constant="5" id="XMZ-dA-xmV"/>
+                            <constraint firstItem="bSK-hC-7Mp" firstAttribute="leading" secondItem="5NE-YL-6CE" secondAttribute="leading" id="fec-II-aLR"/>
+                            <constraint firstItem="5NE-YL-6CE" firstAttribute="bottom" secondItem="Vw8-7c-fNw" secondAttribute="bottom" constant="5" id="lZg-v6-sPq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5NE-YL-6CE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGt-LC-Dr0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3204" y="-569"/>
         </scene>
     </scenes>
 </document>
