@@ -4,13 +4,26 @@
 //
 
 #import "ComposeViewController.h"
+#import "Memo.h"
 
 
 @implementation ComposeViewController {
 
+    IBOutlet UITextView *memoTextView;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+- (IBAction)save:(id)sender {
+    NSString *memo = memoTextView.text;
+
+    Memo *newMemo = [[Memo alloc] initWithContent:memo];
+    [[Memo dummyMemoList] addObject:newMemo];
+
+    [self.navigationController popViewControllerAnimated:YES];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (IBAction)close:(id)sender {

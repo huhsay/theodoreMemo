@@ -10,9 +10,7 @@
 
 @property (strong, nonatomic) NSString* content;
 @property (strong, nonatomic) NSDate* insertDate;
+@property (strong, nonatomic, readonly, class) NSMutableArray *dummyMemoList;
 
 - (instancetype)initWithContent:(NSString *)content;
-
-+ (NSArray *)dummyMemoList;
-
 @end

@@ -6,9 +6,8 @@
 #import "Memo.h"
 
 
-@implementation Memo {
-
-}
+@implementation Memo
+static NSMutableArray *_dummyMemoList = nil;
 
 - (instancetype)initWithContent:(NSString *)content {
     self = [super init];
@@ -19,11 +18,16 @@
     return self;
 }
 
-+ (NSArray *)dummyMemoList {
-    Memo * memo1 = [[Memo alloc] initWithContent:@"dummy data 001"];
-    Memo * memo2 = [[Memo alloc] initWithContent:@"dummy data 002"];
++ (NSMutableArray *)dummyMemoList {
 
-    return @[memo1, memo2];
+    if (_dummyMemoList == nil) {
+        Memo *memo1 = [[Memo alloc] initWithContent:@"dummy data 001"];
+        Memo *memo2 = [[Memo alloc] initWithContent:@"dummy data 002"];
+
+        _dummyMemoList = [@[memo1, memo2] mutableCopy];
+    }
+
+    return _dummyMemoList;
 }
 
 @end

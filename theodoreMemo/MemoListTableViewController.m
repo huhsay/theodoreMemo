@@ -17,6 +17,15 @@
 
 @implementation MemoListTableViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    // 테이블뷰에 새로 들어왔을 때 데이터를 업데이트 해준다.
+    [self.tableView reloadData];
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -24,13 +33,6 @@
     self.formatter.dateStyle = NSDateFormatterLongStyle;
     self.formatter.timeStyle = NSDateFormatterNoStyle;
     self.formatter.locale = [NSLocale localeWithLocaleIdentifier:@"Ko_kr"]; // data format korea
-
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - Table view data source
