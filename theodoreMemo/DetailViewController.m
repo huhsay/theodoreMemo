@@ -8,7 +8,7 @@
 
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UITableViewDataSource>
 
 @end
 
@@ -18,6 +18,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.row == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"memoCell" forIndexPath:indexPath];
+        return cell;
+    } else if (indexPath.row == 1) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dateCee" forIndexPath:indexPath];
+        return  cell;
+    }
+
+    return [[UITableViewCell alloc] init];
+}
+
 
 /*
 #pragma mark - Navigation
