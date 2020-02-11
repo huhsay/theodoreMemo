@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "Memo.h"
 
 @interface DetailViewController () <UITableViewDataSource>
 
@@ -14,10 +15,13 @@
 
 @implementation DetailViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+#pragma mark - datasource protocal override
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 2;

@@ -8,6 +8,7 @@
 
 #import "MemoListTableViewController.h"
 #import "Memo.h"
+#import "DetailViewController.h"
 
 @interface MemoListTableViewController ()
 
@@ -17,14 +18,24 @@
 
 @implementation MemoListTableViewController
 
+#pragma mark - data
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender]; // cell로부터 인덱스를 얻는다. 매개변수가 셀임
+
+    if (indexPath !=nil) {
+        Memo *target = [[Memo dummyMemoList] objectAtIndex:indexPath.row];
+        DetailViewController *vc = (DetailViewController *)segue.destinationViewController;
+        vc.memo = target;
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
     // 테이블뷰에 새로 들어왔을 때 데이터를 업데이트 해준다.
     [self.tableView reloadData];
 }
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
