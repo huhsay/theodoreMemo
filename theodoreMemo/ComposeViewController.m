@@ -6,6 +6,7 @@
 #import "ComposeViewController.h"
 #import "DataManager.h"
 #import "Memo+CoreDataProperties.h"
+#import "Memo+CoreDataClass.h"
 
 
 @implementation ComposeViewController {
@@ -15,6 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    if ( self.editTarget != nil) {
+        self.navigationItem.title = @"edit";
+        memoTextView.text = self.editTarget.content;
+    } else {
+        self.navigationItem.title = @"new";
+        memoTextView.text = @"";
+    }
 }
 - (IBAction)save:(id)sender {
     NSString *memoString = memoTextView.text;

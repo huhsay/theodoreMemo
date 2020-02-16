@@ -6,8 +6,9 @@
 //  Copyright © 2020 mobile-native. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import"DetailViewController.h"
 #import "Memo+CoreDataProperties.h"
+#import "ComposeViewController.h"
 
 
 @interface DetailViewController () <UITableViewDataSource>
@@ -18,6 +19,14 @@
 @synthesize memo;
 
 #pragma mark - life cycle
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender {
+
+    ComposeViewController *vc = segue.destinationViewController;
+    vc.editTarget = self.memo;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -50,6 +59,7 @@
 
     return [[UITableViewCell alloc] init];
 }
+
 
 
 /*

@@ -6,7 +6,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class Memo;
+
 
 @interface ComposeViewController : UIViewController
 - (IBAction)close:(id)sender;
+@property (strong, nonatomic) Memo *editTarget;
 @end
