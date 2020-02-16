@@ -9,6 +9,7 @@
 #import <CoreData/CoreData.h>
 #import "DataManager.h"
 #import "Memo+CoreDataProperties.h"
+#import "Memo+CoreDataClass.h"
 
 @implementation DataManager
 
@@ -88,6 +89,15 @@
     memo.insertDate = [NSDate date];
 
     [self saveContext];
+}
+
+- (void)deleteMemo:(Memo *)memo {
+
+    if (memo != nil) {
+        [self.mainContext deleteObject:memo];
+        [self saveContext];
+    }
+
 }
 
 

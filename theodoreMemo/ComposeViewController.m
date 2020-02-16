@@ -27,7 +27,15 @@
 }
 - (IBAction)save:(id)sender {
     NSString *memoString = memoTextView.text;
-    [[DataManager sharedInstance] addNewMemo:memoString];
+
+    if(self.editTarget != nil) {
+
+        self.editTarget.content = memoString;
+        [[DataManager sharedInstance] saveContext];
+    } else {
+
+        [[DataManager sharedInstance] addNewMemo:memoString];
+    }
 
 
     [self.navigationController popViewControllerAnimated:YES];

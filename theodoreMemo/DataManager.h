@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class NSPersistentContainer;
+@class Memo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)fetchMemo;
 - (void)addNewMemo:(NSString *) newMemo;
+- (void)deleteMemo:(Memo *)memo;
 
 
 @end
