@@ -11,5 +11,11 @@
 
 @interface ComposeViewController : UIViewController
 - (IBAction)close:(id)sender;
+
+
+@property (strong, nonatomic) IBOutlet UITextView *memoTextView;
+
 @property (strong, nonatomic) Memo *editTarget;
+@property (strong, nonatomic) id willShowToken;
+@property (strong, nonatomic) id willhideToken;
 @end

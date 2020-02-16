@@ -10,23 +10,70 @@
 
 
 @implementation ComposeViewController {
-
-    IBOutlet UITextView *memoTextView;
 }
+
+- (void) dealloc {
+
+    //옵저버 해제
+   if (self.willShowToken) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self.willShowToken];
+    }
+
+    if (self.willhideToken) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self.willhideToken];
+    }
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self.memoTextView becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    [self.memoTextView resignFirstResponder];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     if ( self.editTarget != nil) {
         self.navigationItem.title = @"edit";
-        memoTextView.text = self.editTarget.content;
+        self.memoTextView.text = self.editTarget.content;
     } else {
         self.navigationItem.title = @"new";
-        memoTextView.text = @"";
+        self.memoTextView.text = @"";
     }
+
+    self.willShowToken = [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note ) {
+        CGFloat height = [note.userInfo[UIKeyboardWillShowNotification] CGRectValue].size.height;
+
+        UIEdgeInsets inset = self.memoTextView.contentInset;
+        inset.bottom = height;
+        self.memoTextView.contentInset = inset;
+
+        inset = self.memoTextView.scrollIndicatorInsets;
+        inset.bottom = height;
+        self.memoTextView.scrollIndicatorInsets;
+    }];
+
+    self.willhideToken = [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        UIEdgeInsets inset = self.memoTextView.contentInset;
+        inset.bottom = 0;
+        self.memoTextView.contentInset = inset;
+
+        inset = self.memoTextView.scrollIndicatorInsets;
+        inset.bottom = 0;
+        self.memoTextView.scrollIndicatorInsets;
+    }];
 }
+
 - (IBAction)save:(id)sender {
-    NSString *memoString = memoTextView.text;
+    NSString *memoString = self.memoTextView.text;
 
     if(self.editTarget != nil) {
 
