@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSDateFormatter *formatter;
 @property (weak, nonatomic) IBOutlet UITableView *memoTableView;
 - (IBAction)deleteMemo:(id)sender;
+- (IBAction)share:(id)sender;
 @end
 
 @implementation DetailViewController
@@ -93,6 +94,13 @@
     }];
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (IBAction)share:(id)sender {
+    NSString *memo = self.memo.content;
+    
+    UIActivityViewController *vc = [[UIActivityViewController alloc]initWithActivityItems:@[memo] applicationActivities:nil];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

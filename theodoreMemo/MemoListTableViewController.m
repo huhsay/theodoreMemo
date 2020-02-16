@@ -87,7 +87,7 @@
         Memo *target = [[DataManager sharedInstance] memoList][indexPath.row];
         [[DataManager sharedInstance] deleteMemo:target];
 
-        // 리스트와 데이터베이스에서 개수를 비교하기 때문에 리스트에서 삭제해서 숫자를 일치시켜야한다.
+        // 리스트와 데이터베이스에서 개수를 비교하기 때문에 리스트에서 삭제해서 숫자를 일치시켜야한다.dddd
         [[[DataManager sharedInstance] memoList] removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
