@@ -4,7 +4,8 @@
 //
 
 #import "ComposeViewController.h"
-#import "Memo.h"
+#import "DataManager.h"
+#import "Memo+CoreDataProperties.h"
 
 
 @implementation ComposeViewController {
@@ -16,10 +17,9 @@
     [super viewDidLoad];
 }
 - (IBAction)save:(id)sender {
-    NSString *memo = memoTextView.text;
+    NSString *memoString = memoTextView.text;
+    [[DataManager sharedInstance] addNewMemo:memoString];
 
-    Memo *newMemo = [[Memo alloc] initWithContent:memo];
-    [[Memo dummyMemoList] addObject:newMemo];
 
     [self.navigationController popViewControllerAnimated:YES];
     //[self dismissViewControllerAnimated:YES completion:nil];

@@ -7,8 +7,9 @@
 //
 
 #import "MemoListTableViewController.h"
-#import "Memo.h"
 #import "DetailViewController.h"
+#import "Memo+CoreDataProperties.h"
+#import "DataManager.h"
 
 @interface MemoListTableViewController ()
 
@@ -24,7 +25,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender]; // cell로부터 인덱스를 얻는다. 매개변수가 셀임
 
     if (indexPath !=nil) {
-        Memo *target = [[Memo dummyMemoList] objectAtIndex:indexPath.row];
+        Memo *target = [[[DataManager sharedInstance] memoList] objectAtIndex:indexPath.row];
         DetailViewController *vc = (DetailViewController *)segue.destinationViewController;
         vc.memo = target;
     }
@@ -33,6 +34,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    [[DataManager sharedInstance] fetchMemo];
     // 테이블뷰에 새로 들어왔을 때 데이터를 업데이트 해준다.
     [self.tableView reloadData];
 }
@@ -49,20 +51,18 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return [[Memo dummyMemoList] count];
+    return [[[DataManager sharedInstance] memoList] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    Memo *target =[[Memo dummyMemoList] objectAtIndex:indexPath.row];
+
+    Memo *target =[[[DataManager sharedInstance] memoList] objectAtIndex:indexPath.row];
     cell.textLabel.text = target.content;
     cell.detailTextLabel.text = [self.formatter stringFromDate:target.insertDate];
 

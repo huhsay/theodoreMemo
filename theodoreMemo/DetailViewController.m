@@ -7,7 +7,8 @@
 //
 
 #import "DetailViewController.h"
-#import "Memo.h"
+#import "Memo+CoreDataProperties.h"
+
 
 @interface DetailViewController () <UITableViewDataSource>
 @property (strong, nonatomic) NSDateFormatter *formatter;
