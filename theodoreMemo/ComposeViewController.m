@@ -33,10 +33,36 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    NSString *memoString = self.memoTextView.text;
+
+    if (self.editTarget == nil) {
+        // 새로운 메모를 작성할 때
+        
+        // 아무것도 작성하지 않을 경우 저장 하지 않는다.
+        if(memoString == @"") return;
+        
+        // 그렇지 않을 경우 메모작성
+        [[DataManager sharedInstance] addNewMemo:memoString];
+        
+    } else if (self.editTarget.content != self.memoTextView.text) {
+        // 메모가 변경되었을 때
+        self.editTarget.content = memoString;
+        // 코어 데이터 업데이트
+        [[DataManager sharedInstance] saveContext];
+    }
+    
+//    if(self.editTarget != nil) {
+//
+//        self.editTarget.content = memoString;
+//        [[DataManager sharedInstance] saveContext];
+//    } else {
+//
+//        [[DataManager sharedInstance] addNewMemo:memoString];
+//    }
 
     [self.memoTextView resignFirstResponder];
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
