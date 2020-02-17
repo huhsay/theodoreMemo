@@ -63,17 +63,36 @@
             </objects>
             <point key="canvasLocation" x="1738" y="761"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="w2x-9s-UlR">
             <objects>
-                <viewController id="TZV-zE-mFu" sceneMemberID="viewController">
+                <viewController id="TZV-zE-mFu" customClass="WebViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCQ-BO-j7i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvp-99-ar6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kvp-99-ar6" firstAttribute="leading" secondItem="aCb-xL-f8Y" secondAttribute="leading" id="8Mw-GN-MDF"/>
+                            <constraint firstItem="aCb-xL-f8Y" firstAttribute="trailing" secondItem="kvp-99-ar6" secondAttribute="trailing" id="KG3-Qe-CY1"/>
+                            <constraint firstItem="kvp-99-ar6" firstAttribute="top" secondItem="aCb-xL-f8Y" secondAttribute="top" id="R49-mo-TiE"/>
+                            <constraint firstItem="aCb-xL-f8Y" firstAttribute="bottom" secondItem="kvp-99-ar6" secondAttribute="bottom" id="qH8-1K-oql"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aCb-xL-f8Y"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="safari" catalog="system" id="IBa-05-xt7"/>
+                    <connections>
+                        <outlet property="webView" destination="kvp-99-ar6" id="yGI-yP-Bet"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yef-zR-JPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,6 +17,7 @@
 		52D6FEE523E3D2C000377D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D6FEE423E3D2C000377D34 /* main.m */; };
 		AC75BBD223F45BD0006ACEE5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC75BBD023F45BD0006ACEE5 /* Model.xcdatamodeld */; };
 		AC75BBD523F45CEC006ACEE5 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75BBD423F45CEC006ACEE5 /* DataManager.m */; };
+		AC94D64423FAE24D00E16CD8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC94D64323FAE24D00E16CD8 /* WebViewController.m */; };
 		ACBC727B23F1859700BB295E /* MemoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBC727A23F1859700BB295E /* MemoListTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,8 @@
 		AC75BBD123F45BD0006ACEE5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		AC75BBD323F45CEC006ACEE5 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		AC75BBD423F45CEC006ACEE5 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		AC94D64223FAE24D00E16CD8 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		AC94D64323FAE24D00E16CD8 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		ACBC727923F1859700BB295E /* MemoListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoListTableViewController.h; sourceTree = "<group>"; };
 		ACBC727A23F1859700BB295E /* MemoListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +85,8 @@
 				52D6FED223E3D2BE00377D34 /* AppDelegate.h */,
 				AC75BBD323F45CEC006ACEE5 /* DataManager.h */,
 				AC75BBD423F45CEC006ACEE5 /* DataManager.m */,
+				AC94D64223FAE24D00E16CD8 /* WebViewController.h */,
+				AC94D64323FAE24D00E16CD8 /* WebViewController.m */,
 				52D6FED323E3D2BE00377D34 /* AppDelegate.m */,
 				52D6FED523E3D2BE00377D34 /* SceneDelegate.h */,
 				52D6FED623E3D2BE00377D34 /* SceneDelegate.m */,
@@ -176,6 +181,7 @@
 				AC75BBD523F45CEC006ACEE5 /* DataManager.m in Sources */,
 				ACBC727B23F1859700BB295E /* MemoListTableViewController.m in Sources */,
 				52D6FED423E3D2BE00377D34 /* AppDelegate.m in Sources */,
+				AC94D64423FAE24D00E16CD8 /* WebViewController.m in Sources */,
 				52D6FEE523E3D2C000377D34 /* main.m in Sources */,
 				AC75BBD223F45BD0006ACEE5 /* Model.xcdatamodeld in Sources */,
 				52D6FED723E3D2BE00377D34 /* SceneDelegate.m in Sources */,
