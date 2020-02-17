@@ -175,11 +175,11 @@
             <objects>
                 <viewController id="94b-TY-uMZ" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XCE-2g-Xbl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="memoTableView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vw8-7c-fNw">
-                                <rect key="frame" x="5" y="148.5" width="404" height="659.5"/>
+                                <rect key="frame" x="5" y="0.0" width="404" height="803"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -197,11 +197,19 @@
                         <viewLayoutGuide key="safeArea" id="5NE-YL-6CE"/>
                     </view>
                     <navigationItem key="navigationItem" title="new" largeTitleDisplayMode="always" id="1LI-sJ-vq2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SNr-Of-iR4">
-                            <connections>
-                                <action selector="save:" destination="94b-TY-uMZ" id="YSG-Qf-kYw"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="Ds9-WO-ab7">
+                                <connections>
+                                    <action selector="shareMemo:" destination="94b-TY-uMZ" id="TVW-DK-clM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="SNr-Of-iR4">
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="deleteMemo:" destination="94b-TY-uMZ" id="KIt-qt-GyH"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="memoTextView" destination="Vw8-7c-fNw" id="3Nu-Lb-t0M"/>
@@ -314,6 +322,6 @@
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="b4j-L7-EOL"/>
+        <segue reference="t8L-bD-F4a"/>
     </inferredMetricsTieBreakers>
 </document>
