@@ -10,6 +10,7 @@
 
 
 @implementation ComposeViewController {
+    __weak IBOutlet UIBarButtonItem *closeButton;
 }
 
 - (void) dealloc {
@@ -64,6 +65,7 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     if ([self isNewMemo]) {
         self.navigationItem.title = @"new";

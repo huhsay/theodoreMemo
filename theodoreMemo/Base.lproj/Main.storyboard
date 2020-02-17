@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGL-yb-V3r">
-                                <rect key="frame" x="125.5" y="590.5" width="163" height="48"/>
+                                <rect key="frame" x="125.5" y="598.5" width="163" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Google login"/>
                                 <connections>
@@ -24,7 +24,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THEODRE MEMO" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-G1-Qbi">
-                                <rect key="frame" x="32" y="76" width="225" height="107.5"/>
+                                <rect key="frame" x="40" y="84" width="235" height="108"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,11 +33,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="QGL-yb-V3r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="125.5" id="1As-8w-VCp"/>
-                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="391-Qx-Eug"/>
+                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="391-Qx-Eug"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QGL-yb-V3r" secondAttribute="trailing" constant="125.5" id="Lf5-IX-WPf"/>
-                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="YWs-7B-Nix"/>
+                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="YWs-7B-Nix"/>
                             <constraint firstItem="QGL-yb-V3r" firstAttribute="top" secondItem="Arz-G1-Qbi" secondAttribute="bottom" constant="407" id="aqV-he-aCc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Arz-G1-Qbi" secondAttribute="trailing" constant="157" id="tYm-il-z4s"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Arz-G1-Qbi" secondAttribute="trailing" constant="139" id="tYm-il-z4s"/>
                             <constraint firstItem="QGL-yb-V3r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wLB-2K-p0s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -122,7 +122,7 @@
         <scene sceneID="Kpq-u8-4eA">
             <objects>
                 <tableViewController id="w7n-YO-yFN" customClass="MemoListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YG6-7a-zcR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YG6-7a-zcR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -222,20 +222,22 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="action" id="Ds9-WO-ab7">
-                                <connections>
-                                    <action selector="shareMemo:" destination="94b-TY-uMZ" id="TVW-DK-clM"/>
-                                </connections>
-                            </barButtonItem>
                             <barButtonItem systemItem="trash" id="SNr-Of-iR4">
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="deleteMemo:" destination="94b-TY-uMZ" id="KIt-qt-GyH"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem systemItem="action" id="Ds9-WO-ab7">
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="shareMemo:" destination="94b-TY-uMZ" id="TVW-DK-clM"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="closeButton" destination="SNr-Of-iR4" id="e7W-iV-UA1"/>
                         <outlet property="memoTextView" destination="Vw8-7c-fNw" id="3Nu-Lb-t0M"/>
                     </connections>
                 </viewController>
@@ -253,4 +255,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Qn7-Bp-iOt"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
