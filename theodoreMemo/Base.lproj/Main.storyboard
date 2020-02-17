@@ -175,11 +175,11 @@
             <objects>
                 <viewController id="94b-TY-uMZ" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XCE-2g-Xbl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="memoTableView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vw8-7c-fNw">
-                                <rect key="frame" x="5" y="0.0" width="404" height="803"/>
+                                <rect key="frame" x="8" y="148" width="398" height="657"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -189,14 +189,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="5NE-YL-6CE" firstAttribute="trailing" secondItem="Vw8-7c-fNw" secondAttribute="trailing" constant="5" id="0yV-NO-qf7"/>
-                            <constraint firstItem="Vw8-7c-fNw" firstAttribute="leading" secondItem="5NE-YL-6CE" secondAttribute="leading" constant="5" id="3bC-So-UaN"/>
-                            <constraint firstItem="Vw8-7c-fNw" firstAttribute="top" secondItem="5NE-YL-6CE" secondAttribute="top" id="jsI-6p-OtY"/>
-                            <constraint firstItem="5NE-YL-6CE" firstAttribute="bottom" secondItem="Vw8-7c-fNw" secondAttribute="bottom" constant="5" id="lZg-v6-sPq"/>
+                            <constraint firstItem="5NE-YL-6CE" firstAttribute="trailing" secondItem="Vw8-7c-fNw" secondAttribute="trailing" constant="8" id="0yV-NO-qf7"/>
+                            <constraint firstItem="Vw8-7c-fNw" firstAttribute="leading" secondItem="5NE-YL-6CE" secondAttribute="leading" constant="8" id="3bC-So-UaN"/>
+                            <constraint firstItem="Vw8-7c-fNw" firstAttribute="top" secondItem="5NE-YL-6CE" secondAttribute="top" constant="8" id="jsI-6p-OtY"/>
+                            <constraint firstItem="5NE-YL-6CE" firstAttribute="bottom" secondItem="Vw8-7c-fNw" secondAttribute="bottom" constant="8" id="lZg-v6-sPq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5NE-YL-6CE"/>
                     </view>
                     <navigationItem key="navigationItem" title="new" largeTitleDisplayMode="always" id="1LI-sJ-vq2">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="hWO-W1-ed6">
+                            <connections>
+                                <action selector="back:" destination="94b-TY-uMZ" id="PPK-UJ-xGg"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="Ds9-WO-ab7">
                                 <connections>
@@ -219,109 +224,14 @@
             </objects>
             <point key="canvasLocation" x="3204" y="-569"/>
         </scene>
-        <!--memo 보기-->
-        <scene sceneID="LiU-4Q-fWI">
-            <objects>
-                <viewController id="Bar-uJ-OZ3" customClass="DetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bse-Z8-D0g">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msR-5t-Uqk">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="trash" id="1Nz-zb-ihP">
-                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="deleteMemo:" destination="Bar-uJ-OZ3" id="jqO-5y-UsX"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lg8-Ew-ftQ"/>
-                                    <barButtonItem systemItem="compose" id="C7G-9D-FYc">
-                                        <connections>
-                                            <segue destination="94b-TY-uMZ" kind="push" id="t8L-bD-F4a"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6Zu-f0-LNQ"/>
-                                    <barButtonItem systemItem="action" id="DlE-Ot-ouq">
-                                        <connections>
-                                            <action selector="share:" destination="Bar-uJ-OZ3" id="kv3-2O-VyH"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lih-r2-y5o">
-                                <rect key="frame" x="0.0" y="44" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="memoCell" textLabel="7JS-ln-UuR" style="IBUITableViewCellStyleDefault" id="OuL-WE-dO1">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OuL-WE-dO1" id="fYB-2H-av1">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7JS-ln-UuR">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dateCell" textLabel="6o6-o7-7ZW" style="IBUITableViewCellStyleDefault" id="rpq-UM-lVx">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rpq-UM-lVx" id="Be7-KF-xE7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6o6-o7-7ZW">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Bar-uJ-OZ3" id="8RV-zU-nTB"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="LJP-mu-XkM" firstAttribute="trailing" secondItem="Lih-r2-y5o" secondAttribute="trailing" id="1Z7-pO-Vy3"/>
-                            <constraint firstItem="msR-5t-Uqk" firstAttribute="leading" secondItem="LJP-mu-XkM" secondAttribute="leading" id="E2Q-Ra-3AW"/>
-                            <constraint firstItem="msR-5t-Uqk" firstAttribute="top" secondItem="Lih-r2-y5o" secondAttribute="bottom" symbolic="YES" id="JGD-4i-Mc8"/>
-                            <constraint firstItem="Lih-r2-y5o" firstAttribute="leading" secondItem="LJP-mu-XkM" secondAttribute="leading" id="Kby-UN-uYD"/>
-                            <constraint firstItem="msR-5t-Uqk" firstAttribute="trailing" secondItem="LJP-mu-XkM" secondAttribute="trailing" id="hDE-zS-0qI"/>
-                            <constraint firstItem="msR-5t-Uqk" firstAttribute="bottom" secondItem="LJP-mu-XkM" secondAttribute="bottom" id="iKB-jW-zes"/>
-                            <constraint firstItem="Lih-r2-y5o" firstAttribute="top" secondItem="LJP-mu-XkM" secondAttribute="top" id="oi0-20-CnH"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="LJP-mu-XkM"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="memo 보기" id="cNQ-xY-eY8"/>
-                    <connections>
-                        <outlet property="memoTableView" destination="Lih-r2-y5o" id="qPJ-7y-AkM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cff-vE-enN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3203" y="88"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="safari" catalog="system" width="64" height="60"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="t8L-bD-F4a"/>
+        <segue reference="Qn7-Bp-iOt"/>
     </inferredMetricsTieBreakers>
 </document>
