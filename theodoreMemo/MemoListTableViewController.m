@@ -7,6 +7,8 @@
 //
 
 #import "MemoListTableViewController.h"
+
+#import "ComposeViewController.h"
 #import "DetailViewController.h"
 #import "Memo+CoreDataProperties.h"
 #import "DataManager.h"
@@ -26,8 +28,8 @@
 
     if (indexPath !=nil) {
         Memo *target = [[[DataManager sharedInstance] memoList] objectAtIndex:indexPath.row];
-        DetailViewController *vc = (DetailViewController *)segue.destinationViewController;
-        vc.memo = target;
+        ComposeViewController *vc = (ComposeViewController*)segue.destinationViewController;
+        vc.editTarget = target;
     }
 }
 

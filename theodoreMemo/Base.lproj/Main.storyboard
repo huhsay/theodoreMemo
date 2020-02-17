@@ -16,15 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGL-yb-V3r">
-                                <rect key="frame" x="125.5" y="582.5" width="163" height="48"/>
+                                <rect key="frame" x="125.5" y="590.5" width="163" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Google login"/>
                                 <connections>
                                     <segue destination="KQ2-ye-NEC" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bQu-J1-G1d"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEODRE MEMO" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-G1-Qbi">
-                                <rect key="frame" x="24" y="68" width="233" height="107.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THEODRE MEMO" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-G1-Qbi">
+                                <rect key="frame" x="32" y="76" width="225" height="107.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,9 +33,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="QGL-yb-V3r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="125.5" id="1As-8w-VCp"/>
-                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="391-Qx-Eug"/>
+                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="391-Qx-Eug"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QGL-yb-V3r" secondAttribute="trailing" constant="125.5" id="Lf5-IX-WPf"/>
-                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="YWs-7B-Nix"/>
+                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="YWs-7B-Nix"/>
                             <constraint firstItem="QGL-yb-V3r" firstAttribute="top" secondItem="Arz-G1-Qbi" secondAttribute="bottom" constant="407" id="aqV-he-aCc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Arz-G1-Qbi" secondAttribute="trailing" constant="157" id="tYm-il-z4s"/>
                             <constraint firstItem="QGL-yb-V3r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wLB-2K-p0s"/>
@@ -57,7 +57,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="IuM-Xa-4tk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="VVP-O4-H7k"/>
+                    <tabBarItem key="tabBarItem" image="person" catalog="system" id="VVP-O4-H7k"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXe-gL-LSu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,7 +73,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="aCb-xL-f8Y"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="IBa-05-xt7"/>
+                    <tabBarItem key="tabBarItem" title="" image="safari" catalog="system" id="IBa-05-xt7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yef-zR-JPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,7 +132,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Bar-uJ-OZ3" kind="show" id="r2c-h4-HXX"/>
+                                    <segue destination="94b-TY-uMZ" kind="show" id="Qn7-Bp-iOt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -157,7 +157,7 @@
         <scene sceneID="L3c-6f-9Oh">
             <objects>
                 <navigationController id="C84-tY-kng" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="udW-Sl-cn1"/>
+                    <tabBarItem key="tabBarItem" image="square.and.pencil" catalog="system" id="udW-Sl-cn1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="d5L-a2-SLM">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -175,13 +175,13 @@
             <objects>
                 <viewController id="94b-TY-uMZ" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XCE-2g-Xbl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="memoTableView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vw8-7c-fNw">
-                                <rect key="frame" x="5" y="148.5" width="404" height="659.5"/>
+                                <rect key="frame" x="5" y="0.0" width="404" height="803"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -197,11 +197,19 @@
                         <viewLayoutGuide key="safeArea" id="5NE-YL-6CE"/>
                     </view>
                     <navigationItem key="navigationItem" title="new" largeTitleDisplayMode="always" id="1LI-sJ-vq2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SNr-Of-iR4">
-                            <connections>
-                                <action selector="save:" destination="94b-TY-uMZ" id="YSG-Qf-kYw"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="Ds9-WO-ab7">
+                                <connections>
+                                    <action selector="shareMemo:" destination="94b-TY-uMZ" id="TVW-DK-clM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="SNr-Of-iR4">
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="deleteMemo:" destination="94b-TY-uMZ" id="KIt-qt-GyH"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="memoTextView" destination="Vw8-7c-fNw" id="3Nu-Lb-t0M"/>
@@ -220,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msR-5t-Uqk">
-                                <rect key="frame" x="0.0" y="764" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="1Nz-zb-ihP">
                                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -243,7 +251,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lih-r2-y5o">
-                                <rect key="frame" x="0.0" y="148.5" width="414" height="615.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="memoCell" textLabel="7JS-ln-UuR" style="IBUITableViewCellStyleDefault" id="OuL-WE-dO1">
@@ -308,6 +316,11 @@
             <point key="canvasLocation" x="3203" y="88"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="safari" catalog="system" width="64" height="60"/>
+        <image name="square.and.pencil" catalog="system" width="64" height="58"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="t8L-bD-F4a"/>
     </inferredMetricsTieBreakers>
