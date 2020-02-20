@@ -93,6 +93,12 @@
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"Delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        
+        Memo *target = [[DataManager sharedInstance] memoList][indexPath.row];
+        [[DataManager sharedInstance] deleteMemo:target];
+        
+        [[[DataManager sharedInstance] memoList] removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
         completionHandler (YES);
     }];
@@ -100,24 +106,6 @@
 
     return [UISwipeActionsConfiguration configurationWithActions:@[action]];
 }
-
-// Override to support editing the table view.
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        // Delete the row from the data source
-//
-//        // 데이터베이스에서 메시지 삭제
-//        Memo *target = [[DataManager sharedInstance] memoList][indexPath.row];
-//        [[DataManager sharedInstance] deleteMemo:target];
-//
-//        // 리스트와 데이터베이스에서 개수를 비교하기 때문에 리스트에서 삭제해서 숫자를 일치시켜야한다.dddd
-//        [[[DataManager sharedInstance] memoList] removeObjectAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//    }
-//}
-
 
 /*
 // Override to support rearranging the table view.
