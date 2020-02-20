@@ -12,6 +12,7 @@
 #import "DetailViewController.h"
 #import "Memo+CoreDataProperties.h"
 #import "DataManager.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface MemoListTableViewController ()
 
@@ -83,8 +84,22 @@
     UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"Notification" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         
         completionHandler (YES);
-
+        
+        // noti 객체
+        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        content.title = @"notitest";
+        content.subtitle = @"subtitle";
+        content.body = @"body";
+        content.badge = @1;
+        
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval: repeats:NO];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"timedone" content:content trigger:trigger];
+        
+        [UNUserNotificationCenter.currentNotificationCenter addNotificationRequest:request withCompletionHandler:nil];
+        
+        
     }];
+    
     action.backgroundColor = UIColor.blueColor;
     
     return [UISwipeActionsConfiguration configurationWithActions:@[action]];

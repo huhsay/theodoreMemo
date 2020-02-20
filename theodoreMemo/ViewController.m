@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface ViewController ()
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:@[@1,@2,@3] completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        // nothing
+    }];
 }
 
 
