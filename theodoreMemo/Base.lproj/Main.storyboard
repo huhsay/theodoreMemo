@@ -15,16 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGL-yb-V3r">
-                                <rect key="frame" x="125.5" y="598.5" width="163" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Google login"/>
-                                <connections>
-                                    <segue destination="KQ2-ye-NEC" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bQu-J1-G1d"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="loginButtonStackView" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-d3-0kw">
+                                <rect key="frame" x="57" y="627" width="300" height="35"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Fe4-0e-PhG"/>
+                                    <constraint firstAttribute="width" constant="300" id="IM0-0k-zhQ"/>
+                                </constraints>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THEODRE MEMO" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-G1-Qbi">
-                                <rect key="frame" x="40" y="84" width="235" height="108"/>
+                                <rect key="frame" x="60" y="104" width="300" height="107.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="6fd-Vk-LNv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -32,16 +35,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="QGL-yb-V3r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="125.5" id="1As-8w-VCp"/>
-                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="391-Qx-Eug"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QGL-yb-V3r" secondAttribute="trailing" constant="125.5" id="Lf5-IX-WPf"/>
-                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="YWs-7B-Nix"/>
-                            <constraint firstItem="QGL-yb-V3r" firstAttribute="top" secondItem="Arz-G1-Qbi" secondAttribute="bottom" constant="407" id="aqV-he-aCc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Arz-G1-Qbi" secondAttribute="trailing" constant="139" id="tYm-il-z4s"/>
-                            <constraint firstItem="QGL-yb-V3r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wLB-2K-p0s"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h3Y-d3-0kw" secondAttribute="bottom" constant="200" id="81E-e0-vuW"/>
+                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="KhK-c1-iJY"/>
+                            <constraint firstItem="h3Y-d3-0kw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="REx-R2-779"/>
+                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="nhb-aw-mQz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButtonStackView" destination="h3Y-d3-0kw" id="l0H-aO-ux0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,7 +104,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Xe9-Av-rCu">
             <objects>
-                <tabBarController id="KQ2-ye-NEC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="KQ2-ye-NEC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1ty-9K-2JU"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U1D-nH-XV9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
