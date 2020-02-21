@@ -24,7 +24,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THEODRE MEMO" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-G1-Qbi">
-                                <rect key="frame" x="60" y="104" width="300" height="107.5"/>
+                                <rect key="frame" x="50" y="94" width="300" height="107.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="6fd-Vk-LNv"/>
                                 </constraints>
@@ -36,9 +36,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h3Y-d3-0kw" secondAttribute="bottom" constant="200" id="81E-e0-vuW"/>
-                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="KhK-c1-iJY"/>
+                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="KhK-c1-iJY"/>
                             <constraint firstItem="h3Y-d3-0kw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="REx-R2-779"/>
-                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="nhb-aw-mQz"/>
+                            <constraint firstItem="Arz-G1-Qbi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="nhb-aw-mQz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
