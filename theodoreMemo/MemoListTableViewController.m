@@ -67,7 +67,7 @@
     cell.textLabel.text = target.content;
     cell.detailTextLabel.text = [self.formatter stringFromDate:target.insertDate];
 
-    
+
     return cell;
 }
 
@@ -80,38 +80,68 @@
 
 
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
+
     UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"Notification" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
-        
-        completionHandler (YES);
-        
+
+        // Authorization
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError *error) {
+            //do nothing
+
+            if(granted){
+                NSLog(@"granted");
+            } else {
+                NSLog(@"notiAuth %@", error.description);
+            }
+        }];
+
         // noti 객체
-        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        UNMutableNotificationContent *content = [UNMutableNotificationContent new];
         content.title = @"notitest";
         content.subtitle = @"subtitle";
         content.body = @"body";
-        content.badge = @1;
-        
-        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval: repeats:NO];
+
+
+
+        /**
+         * trigger
+         * tirgger의 설정에 따라 반응한다
+         * trigger가 nil이변 시스템에 noti가 바로 전달된다.
+         *
+         * 앱이 켜진상태에서 노티가 오지 않는다.
+         */
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:3 repeats:NO];
+
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"timedone" content:content trigger:trigger];
-        
-        [UNUserNotificationCenter.currentNotificationCenter addNotificationRequest:request withCompletionHandler:nil];
-        
-        
+        [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            //nothing
+            if(error != nil) {
+                NSLog(@"%@", error.description);
+            } else {
+                NSLog(@"noti 성공");
+            }
+        }];
+
+        NSLog(@"noti");
+
+
+        completionHandler (YES);
+
+
     }];
-    
+
     action.backgroundColor = UIColor.blueColor;
-    
+
     return [UISwipeActionsConfiguration configurationWithActions:@[action]];
 }
 
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"Delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
-        
+
         Memo *target = [[DataManager sharedInstance] memoList][indexPath.row];
         [[DataManager sharedInstance] deleteMemo:target];
-        
+
         [[[DataManager sharedInstance] memoList] removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
