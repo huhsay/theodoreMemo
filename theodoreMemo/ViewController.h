@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AuthenticationServices/AuthenticationServices.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <ASAuthorizationControllerDelegate>
 
 
 @end
