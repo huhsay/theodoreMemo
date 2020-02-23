@@ -101,8 +101,6 @@
         content.subtitle = @"subtitle";
         content.body = @"body";
 
-
-
         /**
          * trigger
          * tirgger의 설정에 따라 반응한다
@@ -110,7 +108,7 @@
          *
          * 앱이 켜진상태에서 노티가 오지 않는다.
          */
-        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:3 repeats:NO];
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO];
 
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"timedone" content:content trigger:trigger];
         [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {

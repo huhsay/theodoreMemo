@@ -6,9 +6,10 @@
 //  Copyright © 2020 mobile-native. All rights reserved.
 //
 
+#import <UserNotifications/UserNotifications.h>
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UNUserNotificationCenterDelegate>
 
 @end
 
@@ -35,6 +36,21 @@
     // Called when the user discards a scene session.
     // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+}
+
+-(void)application:(UIApplication *)application willFinishLaunchingWithOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
+
+    // foreground 상태에서 받은 노티에 관한 delegate 설정
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center setDelegate:self];
+
+}
+
+// foreground 상태에서 받은 노티에 관한 delegate override
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+
+    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionSound);
+
 }
 
 
