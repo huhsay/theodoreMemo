@@ -12,6 +12,9 @@
 - (IBAction)presentPhotoLibrary:(id)sender;
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UITextField *memoCountTextField;
+@property (weak, nonatomic) IBOutlet UITextField *favoritCountTextField;
 
 @end
 
@@ -22,7 +25,7 @@
 
     self.profileImageView.layer.masksToBounds = YES;
     NSLog(@"%f", self.profileImageView.frame.size.width);
-    self.profileImageView.layer.cornerRadius = (self.profileImageView.frame.size.width / 2.5);
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
 
     self.imagePickerController = [[UIImagePickerController alloc]init];
     self.imagePickerController.delegate = self;

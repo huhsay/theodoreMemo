@@ -18,6 +18,7 @@
 		AC75BBD223F45BD0006ACEE5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC75BBD023F45BD0006ACEE5 /* Model.xcdatamodeld */; };
 		AC75BBD523F45CEC006ACEE5 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75BBD423F45CEC006ACEE5 /* DataManager.m */; };
 		AC7FB294240269B700191B9B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7FB293240269B700191B9B /* ProfileViewController.m */; };
+		AC7FB29A2402BB4700191B9B /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7FB2992402BB4700191B9B /* CustomTableViewCell.m */; };
 		AC94D64423FAE24D00E16CD8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC94D64323FAE24D00E16CD8 /* WebViewController.m */; };
 		ACBC727B23F1859700BB295E /* MemoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBC727A23F1859700BB295E /* MemoListTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,8 @@
 		AC75BBD423F45CEC006ACEE5 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		AC7FB292240269B700191B9B /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		AC7FB293240269B700191B9B /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		AC7FB2982402BB4700191B9B /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		AC7FB2992402BB4700191B9B /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		AC911B9323FFA125001A0679 /* theodoreMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = theodoreMemo.entitlements; sourceTree = "<group>"; };
 		AC94D64223FAE24D00E16CD8 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		AC94D64323FAE24D00E16CD8 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 				42353222C1E49F70985FFCB5 /* ComposeViewController.h */,
 				AC7FB292240269B700191B9B /* ProfileViewController.h */,
 				AC7FB293240269B700191B9B /* ProfileViewController.m */,
+				AC7FB2982402BB4700191B9B /* CustomTableViewCell.h */,
+				AC7FB2992402BB4700191B9B /* CustomTableViewCell.m */,
 			);
 			path = theodoreMemo;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				ACBC727B23F1859700BB295E /* MemoListTableViewController.m in Sources */,
 				52D6FED423E3D2BE00377D34 /* AppDelegate.m in Sources */,
 				AC7FB294240269B700191B9B /* ProfileViewController.m in Sources */,
+				AC7FB29A2402BB4700191B9B /* CustomTableViewCell.m in Sources */,
 				AC94D64423FAE24D00E16CD8 /* WebViewController.m in Sources */,
 				52D6FEE523E3D2C000377D34 /* main.m in Sources */,
 				AC75BBD223F45BD0006ACEE5 /* Model.xcdatamodeld in Sources */,
