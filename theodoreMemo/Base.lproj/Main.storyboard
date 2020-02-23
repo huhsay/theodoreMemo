@@ -50,17 +50,33 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="87.723214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="oM7-QN-Qvc">
             <objects>
-                <viewController id="wFh-Zl-Nom" sceneMemberID="viewController">
+                <viewController id="wFh-Zl-Nom" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ohh-oW-0dE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GWt-5Y-eiN">
+                                <rect key="frame" x="100" y="144" width="214" height="214"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GWt-5Y-eiN" secondAttribute="height" multiplier="1:1" id="sfa-sF-v2n"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GWt-5Y-eiN" firstAttribute="top" secondItem="IuM-Xa-4tk" secondAttribute="top" constant="100" id="56u-AF-Maa"/>
+                            <constraint firstItem="GWt-5Y-eiN" firstAttribute="leading" secondItem="IuM-Xa-4tk" secondAttribute="leading" constant="100" id="6DM-gn-VuL"/>
+                            <constraint firstItem="IuM-Xa-4tk" firstAttribute="trailing" secondItem="GWt-5Y-eiN" secondAttribute="trailing" constant="100" id="yuC-IF-eeh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IuM-Xa-4tk"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="person" catalog="system" id="VVP-O4-H7k"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="GWt-5Y-eiN" id="ESC-kO-UKJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXe-gL-LSu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
