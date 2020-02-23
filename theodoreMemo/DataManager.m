@@ -87,6 +87,7 @@
     Memo *memo = [[Memo alloc] initWithContext:self.mainContext];
     memo.content = newMemo;
     memo.insertDate = [NSDate date];
+    memo.favorite = 0;
 
     [self saveContext];
 }
@@ -103,7 +104,6 @@
 - (int)getCount {
     [self fetchMemo];
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Memo"];
-    request.
     NSLog(@"%i",self.memoList.count);
     return (int) self.memoList.count;
 }

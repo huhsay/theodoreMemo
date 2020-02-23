@@ -9,9 +9,12 @@
 #import "Memo+CoreDataClass.h"
 
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "ResourceNotFoundInspection"
 @implementation ComposeViewController {
     __weak IBOutlet UIBarButtonItem *closeButton;
 }
+@synthesize fovoriteButton;
 
 - (void) dealloc {
     // 키보드 옵져버 해제
@@ -27,6 +30,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.memoTextView becomeFirstResponder];
+
+    if (self.editTarget != nil && self.editTarget.favorite != 0) {
+        self.fovoriteButton.image = [UIImage imageNamed:@"heart.fill"];
+    }
 }
 
 - (IBAction)back:(id)sender {
@@ -121,6 +128,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)pressFavoriteButton:(id)sender {
+    self.fovoriteButton.image = [UIImage systemImageNamed:@"heart.fill"];
+}
+
 
 #pragma mark items
 
@@ -196,3 +207,5 @@
 }
 
 @end
+
+#pragma clang diagnostic pop
