@@ -10,6 +10,7 @@
 
 @interface ProfileViewController ()
 - (IBAction)presentPhotoLibrary:(id)sender;
+- (IBAction)logout:(id)sender;
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
@@ -45,6 +46,11 @@
 - (IBAction)presentPhotoLibrary:(id)sender {
     self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:_imagePickerController animated:YES completion:nil];
+}
+
+- (IBAction)logout:(id)sender {
+    UITabBarController *tabBarController = self.tabBarController;
+    [tabBarController dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<UIImagePickerControllerInfoKey, id> *)editingInfo {

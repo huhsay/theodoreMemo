@@ -38,7 +38,7 @@
     ASAuthorizationAppleIDProvider *appleIDProvider = [ASAuthorizationAppleIDProvider new];
     ASAuthorizationAppleIDRequest *request = [appleIDProvider createRequest];
     request.requestedScopes = @[NSFullUserName(), ASAuthorizationScopeEmail];
-    
+
     ASAuthorizationController *authorizationController = [[ASAuthorizationController alloc] initWithAuthorizationRequests:@[request]];
     authorizationController.delegate = self;
     //authorizationController.presentationContextProvider = self;

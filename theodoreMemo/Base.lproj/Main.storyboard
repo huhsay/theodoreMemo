@@ -105,6 +105,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="logout:" destination="wFh-Zl-Nom" eventType="touchUpInside" id="co2-EO-xSv"/>
                                     <action selector="presentPhotoLibrary:" destination="wFh-Zl-Nom" eventType="touchUpInside" id="YuT-1s-Dxd"/>
                                 </connections>
                             </button>
