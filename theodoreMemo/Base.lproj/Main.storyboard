@@ -64,11 +64,32 @@
                                     <constraint firstAttribute="width" secondItem="GWt-5Y-eiN" secondAttribute="height" multiplier="1:1" id="sfa-sF-v2n"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWR-qL-Ktc">
+                                <rect key="frame" x="177" y="343" width="60" height="30"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="dct-ZO-Idm"/>
+                                </constraints>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="presentPhotoLibrary:" destination="wFh-Zl-Nom" eventType="touchUpInside" id="FO2-cp-yp6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="GWt-5Y-eiN" firstAttribute="top" secondItem="IuM-Xa-4tk" secondAttribute="top" constant="100" id="56u-AF-Maa"/>
                             <constraint firstItem="GWt-5Y-eiN" firstAttribute="leading" secondItem="IuM-Xa-4tk" secondAttribute="leading" constant="100" id="6DM-gn-VuL"/>
+                            <constraint firstItem="uWR-qL-Ktc" firstAttribute="top" secondItem="GWt-5Y-eiN" secondAttribute="bottom" constant="-15" id="7tT-ql-GHN"/>
+                            <constraint firstItem="uWR-qL-Ktc" firstAttribute="centerX" secondItem="ohh-oW-0dE" secondAttribute="centerX" id="IfO-tv-66J"/>
                             <constraint firstItem="IuM-Xa-4tk" firstAttribute="trailing" secondItem="GWt-5Y-eiN" secondAttribute="trailing" constant="100" id="yuC-IF-eeh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IuM-Xa-4tk"/>
@@ -80,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXe-gL-LSu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1738" y="761"/>
+            <point key="canvasLocation" x="1737.68115942029" y="760.71428571428567"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="w2x-9s-UlR">
