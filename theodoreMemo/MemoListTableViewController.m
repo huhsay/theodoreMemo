@@ -12,6 +12,7 @@
 #import "DetailViewController.h"
 #import "Memo+CoreDataProperties.h"
 #import "DataManager.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface MemoListTableViewController ()
 
@@ -20,8 +21,6 @@
 @end
 
 @implementation MemoListTableViewController
-
-#pragma mark - data
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender]; // cell로부터 인덱스를 얻는다. 매개변수가 셀임
@@ -68,7 +67,7 @@
     cell.textLabel.text = target.content;
     cell.detailTextLabel.text = [self.formatter stringFromDate:target.insertDate];
 
-    
+
     return cell;
 }
 
@@ -80,23 +79,76 @@
 }
 
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
 
-        // 데이터베이스에서 메시지 삭제
+    UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"Notification" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+
+        // Authorization
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError *error) {
+            //do nothing
+
+            if(granted){
+                NSLog(@"granted");
+            } else {
+                NSLog(@"notiAuth %@", error.description);
+            }
+        }];
+
+        // noti 객체
+        UNMutableNotificationContent *content = [UNMutableNotificationContent new];
+        content.title = @"notitest";
+        content.subtitle = @"subtitle";
+        content.body = @"body";
+
+        /**
+         * trigger
+         * tirgger의 설정에 따라 반응한다
+         * trigger가 nil이변 시스템에 noti가 바로 전달된다.
+         *
+         * 앱이 켜진상태에서 노티가 오지 않는다.
+         */
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO];
+
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"timedone" content:content trigger:trigger];
+        [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            //nothing
+            if(error != nil) {
+                NSLog(@"%@", error.description);
+            } else {
+                NSLog(@"noti 성공");
+            }
+        }];
+
+        NSLog(@"noti");
+
+
+        completionHandler (YES);
+
+
+    }];
+
+    action.backgroundColor = UIColor.blueColor;
+
+    return [UISwipeActionsConfiguration configurationWithActions:@[action]];
+}
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"Delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+
         Memo *target = [[DataManager sharedInstance] memoList][indexPath.row];
         [[DataManager sharedInstance] deleteMemo:target];
 
-        // 리스트와 데이터베이스에서 개수를 비교하기 때문에 리스트에서 삭제해서 숫자를 일치시켜야한다.dddd
         [[[DataManager sharedInstance] memoList] removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
 
+        completionHandler (YES);
+    }];
+    action.backgroundColor = UIColor.redColor;
+
+    return [UISwipeActionsConfiguration configurationWithActions:@[action]];
+}
 
 /*
 // Override to support rearranging the table view.
