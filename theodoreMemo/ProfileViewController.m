@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "DataManager.h"
 
 @interface ProfileViewController ()
 - (IBAction)presentPhotoLibrary:(id)sender;
@@ -31,7 +32,14 @@
     self.imagePickerController = [[UIImagePickerController alloc]init];
     self.imagePickerController.delegate = self;
     // Do any additional setup after loading the view.
+
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.memoCountTextField.text = [[NSString alloc] initWithFormat:@"%i", [[DataManager sharedInstance] getCount]];
+}
+
+
 
 /*
 #pragma mark - Navigation
@@ -61,5 +69,6 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 @end

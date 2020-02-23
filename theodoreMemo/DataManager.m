@@ -100,6 +100,14 @@
 
 }
 
+- (int)getCount {
+    [self fetchMemo];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Memo"];
+    request.
+    NSLog(@"%i",self.memoList.count);
+    return (int) self.memoList.count;
+}
+
 
 - (NSManagedObjectContext *)mainContext {
     return self.persistentContainer.viewContext;
