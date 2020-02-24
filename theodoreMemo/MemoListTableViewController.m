@@ -45,7 +45,7 @@
     [super viewDidLoad];
 
     self.formatter = [[NSDateFormatter alloc] init];
-    [self.formatter setLocalizedDateFormatFromTemplate:@"yyyyMM dd"];
+    [self.formatter setDateFormat:@"yyyy MM dd"];
 //    self.formatter.dateFormat = @"yyyy MM dd";
 //    self.formatter.timeStyle = NSDateFormatterNoStyle;
     self.formatter.locale = [NSLocale localeWithLocaleIdentifier:@"Ko_kr"]; // data format korea

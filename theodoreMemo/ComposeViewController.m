@@ -68,7 +68,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.memoTextView becomeFirstResponder];
 
     if (self.editTarget != nil && self.editTarget.favorite != 0) {
         self.fovoriteButton.image = [UIImage systemImageNamed:@"heart.fill"];
