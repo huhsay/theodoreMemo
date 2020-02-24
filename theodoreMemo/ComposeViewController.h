@@ -20,4 +20,5 @@
 @property (strong, nonatomic) id willShowToken;
 @property (strong, nonatomic) id willhideToken;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *fovoriteButton;
+@property (strong, nonatomic) UIImageView *favoriteButton;
 @end
