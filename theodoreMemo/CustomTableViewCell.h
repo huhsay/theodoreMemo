@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CustomTableViewCell : UITableViewCell
 @property (weak, nonatomic, readwrite) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic, readwrite) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *heartImage;
 
 @end
 

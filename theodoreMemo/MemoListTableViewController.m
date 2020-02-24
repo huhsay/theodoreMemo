@@ -68,6 +68,12 @@
     Memo *target =[[[DataManager sharedInstance] memoList] objectAtIndex:indexPath.row];
     cell.textLabel.text = target.content;
     cell.dateLabel.text = [self.formatter stringFromDate:target.insertDate];
+    
+    if( target.favorite != 0) {
+        cell.heartImage.image = [UIImage systemImageNamed:@"heart.fill"];
+    } else {
+        cell.heartImage.image = nil;
+    }
 
 
     return cell;
