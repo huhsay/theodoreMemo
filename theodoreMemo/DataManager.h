@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fetchMemo;
 - (void)addNewMemo:(NSString *) newMemo;
 - (void)deleteMemo:(Memo *)memo;
+- (int)getCount;
+- (int)getFavoriteCount;
 
 
 @end

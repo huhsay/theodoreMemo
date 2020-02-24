@@ -12,6 +12,7 @@
 #import "DetailViewController.h"
 #import "Memo+CoreDataProperties.h"
 #import "DataManager.h"
+#import "CustomTableViewCell.h"
 #import <UserNotifications/UserNotifications.h>
 
 @interface MemoListTableViewController ()
@@ -44,8 +45,9 @@
     [super viewDidLoad];
 
     self.formatter = [[NSDateFormatter alloc] init];
-    self.formatter.dateStyle = NSDateFormatterLongStyle;
-    self.formatter.timeStyle = NSDateFormatterNoStyle;
+    [self.formatter setLocalizedDateFormatFromTemplate:@"yyyyMM dd"];
+//    self.formatter.dateFormat = @"yyyy MM dd";
+//    self.formatter.timeStyle = NSDateFormatterNoStyle;
     self.formatter.locale = [NSLocale localeWithLocaleIdentifier:@"Ko_kr"]; // data format korea
 }
 
@@ -61,11 +63,17 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 
     Memo *target =[[[DataManager sharedInstance] memoList] objectAtIndex:indexPath.row];
     cell.textLabel.text = target.content;
-    cell.detailTextLabel.text = [self.formatter stringFromDate:target.insertDate];
+    cell.dateLabel.text = [self.formatter stringFromDate:target.insertDate];
+    
+    if( target.favorite != 0) {
+        cell.heartImage.image = [UIImage systemImageNamed:@"heart.fill"];
+    } else {
+        cell.heartImage.image = nil;
+    }
 
 
     return cell;
@@ -96,10 +104,11 @@
         }];
 
         // noti 객체
+        Memo *target =[[[DataManager sharedInstance] memoList] objectAtIndex:indexPath.row];
         UNMutableNotificationContent *content = [UNMutableNotificationContent new];
-        content.title = @"notitest";
-        content.subtitle = @"subtitle";
-        content.body = @"body";
+        content.title = @"Diary noti";
+        content.subtitle = [self.formatter stringFromDate:target.insertDate];
+        content.body = target.content;
 
         /**
          * trigger

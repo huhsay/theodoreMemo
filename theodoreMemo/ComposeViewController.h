@@ -10,12 +10,12 @@
 
 
 @interface ComposeViewController : UIViewController
-- (IBAction)close:(id)sender;
 
-
-@property (strong, nonatomic) IBOutlet UITextView *memoTextView;
+- (IBAction)pressFavoriteButton:(id)sender;
 
 @property (strong, nonatomic) Memo *editTarget;
 @property (strong, nonatomic) id willShowToken;
-@property (strong, nonatomic) id willhideToken;
+@property (strong, nonatomic) id willHideToken;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *fovoriteButton;
+@property (strong, nonatomic) IBOutlet UITextView *memoTextView;
 @end

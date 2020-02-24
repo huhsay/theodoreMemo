@@ -1,0 +1,22 @@
+PODS:
+  - lottie-ios (2.5.3)
+
+DEPENDENCIES:
+  - lottie-ios (from `https://github.com/airbnb/lottie-ios.git`, branch `lottie/objectiveC`)
+
+EXTERNAL SOURCES:
+  lottie-ios:
+    :branch: lottie/objectiveC
+    :git: https://github.com/airbnb/lottie-ios.git
+
+CHECKOUT OPTIONS:
+  lottie-ios:
+    :commit: a7de66519254e02baf395fbe90d1d811ee6e0409
+    :git: https://github.com/airbnb/lottie-ios.git
+
+SPEC CHECKSUMS:
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
+
+PODFILE CHECKSUM: f8e713876e7633f54063158c47be2569add47f5d
+
+COCOAPODS: 1.8.4

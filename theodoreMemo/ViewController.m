@@ -38,10 +38,10 @@
     ASAuthorizationAppleIDProvider *appleIDProvider = [ASAuthorizationAppleIDProvider new];
     ASAuthorizationAppleIDRequest *request = [appleIDProvider createRequest];
     request.requestedScopes = @[NSFullUserName(), ASAuthorizationScopeEmail];
-    
+
     ASAuthorizationController *authorizationController = [[ASAuthorizationController alloc] initWithAuthorizationRequests:@[request]];
     authorizationController.delegate = self;
-    //authorizationController.presentationContextProvider = self;
+    authorizationController.presentationContextProvider = self;
     [authorizationController performRequests];
 }
 
@@ -49,6 +49,12 @@
 #pragma mark - ASAuthorizationControllerDelegate
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithAuthorization:(ASAuthorization *)authorization {
     NSLog(@"didCompleteWithAuth");
+    
+    ASAuthorizationAppleIDCredential *credential = authorization.credential;
+    NSData *authorizationCodeData = credential.authorizationCode;
+    NSString *authorizationCode = [[NSString alloc] initWithData:authorizationCodeData encoding:NSUTF8StringEncoding];
+    NSString *userID = credential.user;
+    NSString *fullName = credential.fullName;
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
@@ -59,6 +65,13 @@
 
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithError:(NSError *)error {
     NSLog(@"didCompleteWitherror error is %@:", error.description);
+}
+
+#pragma mark - ASAuthorizationControllerPresentationContextProviding
+
+- (ASPresentationAnchor)presentationAnchorForAuthorizationController:(ASAuthorizationController *)controller
+{
+    return self.view.window;
 }
 
 @end

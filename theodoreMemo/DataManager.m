@@ -15,9 +15,6 @@
 
 
 #pragma mark - Core Data Stack
-
-
-
 @synthesize persistentContainer = _persistentContainer;
 
 - (NSPersistentContainer *)persistentContainer {
@@ -87,6 +84,7 @@
     Memo *memo = [[Memo alloc] initWithContext:self.mainContext];
     memo.content = newMemo;
     memo.insertDate = [NSDate date];
+    memo.favorite = 0;
 
     [self saveContext];
 }
@@ -100,10 +98,28 @@
 
 }
 
+- (int)getCount {
+    [self fetchMemo];
+    NSLog(@"%i",self.memoList.count);
+    return (int) self.memoList.count;
+}
+
 
 - (NSManagedObjectContext *)mainContext {
     return self.persistentContainer.viewContext;
 }
+
+- (int)getFavoriteCount {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Memo"];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"favorite = %d", 1]];
+    NSArray *result = [self.mainContext executeFetchRequest:request error:nil];
+    
+    NSLog(@"%i", (int)result.count);
+    return (int) result.count;
+    
+    return 1;
+}
+
 
 
 @end
