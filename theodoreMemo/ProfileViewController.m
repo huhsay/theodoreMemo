@@ -32,7 +32,16 @@
     self.imagePickerController = [[UIImagePickerController alloc]init];
     self.imagePickerController.delegate = self;
     // Do any additional setup after loading the view.
+    
+    
+    self.paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    self.documentsPath = [self.paths objectAtIndex:0];
+    self.filePath = [self.documentsPath stringByAppendingPathComponent:@"profile.png"];
 
+    if(self.filePath != nil) {
+        NSData *pngData = [NSData dataWithContentsOfFile:self.filePath];
+        [self.profileImageView initWithImage:[UIImage imageWithData:pngData]];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,11 +74,17 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<UIImagePickerControllerInfoKey, id> *)editingInfo {
     [self.profileImageView initWithImage:image];
+    [self saveImageToDir:image];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)saveImageToDir:(UIImage *)image {
+    NSData *pngData = UIImagePNGRepresentation(image);
+    [pngData writeToFile:self.filePath atomically:YES];
 }
 
 

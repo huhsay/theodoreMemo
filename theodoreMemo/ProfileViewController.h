@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+@property (strong, nonatomic) NSString *documentsPath;
+@property (strong, nonatomic) NSString *filePath;
+@property (strong, nonatomic) NSArray *paths;
 @end
 
 NS_ASSUME_NONNULL_END
