@@ -36,7 +36,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.memoCountTextField.text = [[NSString alloc] initWithFormat:@"%i", [[DataManager sharedInstance] getCount]];
+    DataManager *dataManager = [DataManager sharedInstance];
+    self.memoCountTextField.text = [[NSString alloc] initWithFormat:@"%i", [dataManager getCount]];
+    self.favoritCountTextField.text = [[NSString alloc] initWithFormat:@"%i", [dataManager getFavoriteCount]];
 }
 
 

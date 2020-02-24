@@ -33,7 +33,7 @@
     [self.memoTextView becomeFirstResponder];
 
     if (self.editTarget != nil && self.editTarget.favorite != 0) {
-        self.fovoriteButton.image = [UIImage imageNamed:@"heart.fill"];
+        self.fovoriteButton.image = [UIImage systemImageNamed:@"heart.fill"];
     }
 }
 
@@ -139,36 +139,17 @@
     } else {
         
         if(self.editTarget.favorite !=0) {
-            [self longPress];
+            self.fovoriteButton.image = [UIImage systemImageNamed:@"heart"];
+            self.editTarget.favorite--;
+            [[DataManager sharedInstance] saveContext];
         } else {
             self.fovoriteButton.image = [UIImage systemImageNamed:@"heart.fill"];
             [self playHeartLottie];
-            // TODO: database favorite 키우는 작업;
+            self.editTarget.favorite ++;
+            [[DataManager sharedInstance] saveContext];
         }
     }
 }
-
-- (void) longPress {
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"취소" message:@"좋아요를 취소하시겠습니까?" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"삭제" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        self.fovoriteButton.image = [UIImage systemImageNamed:@"heart"];
-        
-        // TODO: database 취소 작업
-    }];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"취소" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [alert dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    [alert addAction:ok];
-    [alert addAction:cancel];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-    NSLog(@"longPressGesture");
-}
-
 
 #pragma mark items
 
