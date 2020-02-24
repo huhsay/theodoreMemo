@@ -7,6 +7,7 @@
 #import "DataManager.h"
 #import "Memo+CoreDataProperties.h"
 #import "Memo+CoreDataClass.h"
+#import <Lottie/Lottie.h>
 
 
 #pragma clang diagnostic push
@@ -141,6 +142,7 @@
             [self longPress];
         } else {
             self.fovoriteButton.image = [UIImage systemImageNamed:@"heart.fill"];
+            [self playHeartLottie];
             // TODO: database favorite 키우는 작업;
         }
     }
@@ -239,6 +241,31 @@
     }
 
     return YES;
+}
+
+- (void)playHeartLottie {
+    
+    NSLog(@"ready lottie");
+    
+    LOTAnimationView *animation1 = [[LOTAnimationView alloc] initWithContentsOfURL:[NSURL URLWithString:@"https://assets7.lottiefiles.com/temp/lf20_FuXRuT.json"]];
+    animation1.contentMode = UIViewContentModeScaleAspectFit;
+    animation1.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:animation1];
+    [animation1 playWithCompletion:^(BOOL animationFinished) {
+        [animation1 removeFromSuperview];
+    }];
+    
+    animation1.loopAnimation = NO;
+    
+    LOTAnimationView *animation2 = [[LOTAnimationView alloc] initWithContentsOfURL:[NSURL URLWithString:@"https://assets1.lottiefiles.com/packages/lf20_TuxDyk.json"]];
+    animation2.contentMode = UIViewContentModeScaleAspectFit;
+    animation2.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:animation2];
+    [animation2 playWithCompletion:^(BOOL animationFinished) {
+        [animation2 removeFromSuperview];
+    }];
+    
+    animation2.loopAnimation = NO;
 }
 
 @end
