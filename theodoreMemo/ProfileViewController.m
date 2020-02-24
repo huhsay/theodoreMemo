@@ -15,8 +15,8 @@
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
-@property (weak, nonatomic) IBOutlet UITextField *memoCountTextField;
-@property (weak, nonatomic) IBOutlet UITextField *favoritCountTextField;
+@property (weak, nonatomic) IBOutlet UILabel *memoCountTextField;
+@property (weak, nonatomic) IBOutlet UILabel *favoritCountTextField;
 
 @end
 
