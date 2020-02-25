@@ -10,6 +10,8 @@
 #import <UserNotifications/UserNotifications.h>
 #import <AuthenticationServices/AuthenticationServices.h>
 #import "MemoListTableViewController.h"
+#import "KeychainItemWrapper.h"
+
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIStackView *loginButtonStackView;
@@ -23,6 +25,17 @@
     // Do any additional setup after loading the view.
     
     [self setupProviderLoginView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:HJLoginIdentifier accessGroup:nil];
+    NSString *userID = [keychainItem objectForKey:(__bridge id)kSecAttrAccount];
+    
+    // 키체인을 리셋하면 nil이 아니라 @""이 되는 마법.
+    if (userID && ![userID isEqualToString:@""]) {
+        [self showMainViewController];
+        return;
+    }
 }
 
 - (void) setupProviderLoginView {
@@ -56,12 +69,19 @@
     NSString *userID = credential.user;
     NSString *fullName = credential.fullName;
     
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:HJLoginIdentifier accessGroup:nil];
+    [keychainItem setObject:userID forKey:(__bridge id)kSecAttrAccount];
+    
+    [self showMainViewController];
+}
+
+- (void)showMainViewController
+{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
     vc.selectedIndex = 1;
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:vc animated:NO completion:nil];
-    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithError:(NSError *)error {

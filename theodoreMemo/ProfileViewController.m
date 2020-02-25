@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "DataManager.h"
+#import "KeychainItemWrapper.h"
 
 @interface ProfileViewController ()
 - (IBAction)presentPhotoLibrary:(id)sender;
@@ -68,6 +69,9 @@
 }
 
 - (IBAction)logout:(id)sender {
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:HJLoginIdentifier accessGroup:nil];
+    [keychainItem resetKeychainItem];
+    
     UITabBarController *tabBarController = self.tabBarController;
     [tabBarController dismissViewControllerAnimated:NO completion:nil];
 }

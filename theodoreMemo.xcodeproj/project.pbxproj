@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,7 @@
 		AC7FB29A2402BB4700191B9B /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7FB2992402BB4700191B9B /* CustomTableViewCell.m */; };
 		AC94D64423FAE24D00E16CD8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC94D64323FAE24D00E16CD8 /* WebViewController.m */; };
 		ACBC727B23F1859700BB295E /* MemoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBC727A23F1859700BB295E /* MemoListTableViewController.m */; };
+		ACF7B8D62405103400D88721 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7B8D52405103400D88721 /* KeychainItemWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		AC94D64323FAE24D00E16CD8 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		ACBC727923F1859700BB295E /* MemoListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoListTableViewController.h; sourceTree = "<group>"; };
 		ACBC727A23F1859700BB295E /* MemoListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoListTableViewController.m; sourceTree = "<group>"; };
+		ACF7B8D124050B1D00D88721 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		ACF7B8D52405103400D88721 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +93,13 @@
 			isa = PBXGroup;
 			children = (
 				AC911B9323FFA125001A0679 /* theodoreMemo.entitlements */,
+				ACF7B8D424050B2200D88721 /* Supporting Files */,
 				52D6FED223E3D2BE00377D34 /* AppDelegate.h */,
+				52D6FED323E3D2BE00377D34 /* AppDelegate.m */,
 				AC75BBD323F45CEC006ACEE5 /* DataManager.h */,
 				AC75BBD423F45CEC006ACEE5 /* DataManager.m */,
 				AC94D64223FAE24D00E16CD8 /* WebViewController.h */,
 				AC94D64323FAE24D00E16CD8 /* WebViewController.m */,
-				52D6FED323E3D2BE00377D34 /* AppDelegate.m */,
 				52D6FED523E3D2BE00377D34 /* SceneDelegate.h */,
 				52D6FED623E3D2BE00377D34 /* SceneDelegate.m */,
 				52D6FED823E3D2BE00377D34 /* ViewController.h */,
@@ -126,13 +130,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ACF7B8D424050B2200D88721 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACF7B8D124050B1D00D88721 /* KeychainItemWrapper.h */,
+				ACF7B8D52405103400D88721 /* KeychainItemWrapper.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F4B2F30D9D2E5A03B39C98A8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				8E02334C3E351EF31C3DD562 /* Pods-theodoreMemo.debug.xcconfig */,
 				9B75BBF3844DC5668F974FF0 /* Pods-theodoreMemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +270,7 @@
 				AC7FB29A2402BB4700191B9B /* CustomTableViewCell.m in Sources */,
 				AC94D64423FAE24D00E16CD8 /* WebViewController.m in Sources */,
 				52D6FEE523E3D2C000377D34 /* main.m in Sources */,
+				ACF7B8D62405103400D88721 /* KeychainItemWrapper.m in Sources */,
 				AC75BBD223F45BD0006ACEE5 /* Model.xcdatamodeld in Sources */,
 				52D6FED723E3D2BE00377D34 /* SceneDelegate.m in Sources */,
 				423536ACB570AE6C85EA0C31 /* ComposeViewController.m in Sources */,

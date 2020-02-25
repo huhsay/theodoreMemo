@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AuthenticationServices/AuthenticationServices.h>
 
+static NSString *const HJLoginIdentifier = @"LoginData";
+
 @interface ViewController : UIViewController <ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding>
 
 
