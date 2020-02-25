@@ -236,7 +236,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Xe9-Av-rCu">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" id="KQ2-ye-NEC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" modalTransitionStyle="flipHorizontal" id="KQ2-ye-NEC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1ty-9K-2JU"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U1D-nH-XV9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

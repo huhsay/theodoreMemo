@@ -57,9 +57,10 @@
     NSString *fullName = credential.fullName;
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+    UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+    vc.selectedIndex = 1;
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:vc animated:YES completion:nil];
+    [self presentViewController:vc animated:NO completion:nil];
     
 }
 

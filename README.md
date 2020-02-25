@@ -16,6 +16,11 @@
 
 ## 2 개발 기술 스펙
 
+- 로그인
+- 메모
+- 프로필
+- 
+
 - AuthenticationServices framework - Sing In with Apple 기능을 이용한 로그인
 - UITabBarController를 활용한 화면구성
 - WKWebView 사용
