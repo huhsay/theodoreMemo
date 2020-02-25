@@ -34,6 +34,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4R3-3C-hTO">
+                                <rect key="frame" x="137.5" y="545" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="x2Q-EV-Yxr"/>
+                                </constraints>
+                                <state key="normal" title="임시 버튼"/>
+                                <connections>
+                                    <segue destination="KQ2-ye-NEC" kind="presentation" modalPresentationStyle="fullScreen" id="VuZ-9p-6VN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -41,7 +51,9 @@
                             <constraint firstItem="917-9t-utx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="NDZ-9l-Aia"/>
                             <constraint firstItem="917-9t-utx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="Od7-hh-xnW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h3Y-d3-0kw" secondAttribute="trailing" constant="24" id="PeE-bE-N1h"/>
+                            <constraint firstItem="4R3-3C-hTO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RYl-gr-nOT"/>
                             <constraint firstItem="h3Y-d3-0kw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="WWe-mG-94E"/>
+                            <constraint firstItem="h3Y-d3-0kw" firstAttribute="top" secondItem="4R3-3C-hTO" secondAttribute="bottom" constant="12" id="foe-57-Lj0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

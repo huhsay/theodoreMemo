@@ -6,8 +6,9 @@
 - 다양한 framework 사용
 - 2월 3일 ~ 2월 6일 교육 내용 활용
   - 코코아 터치 프레임워크 이해
-  - UIKit 및 tableViewController
+  - UIKit 및 tableViewController, NavigationController
   - 스토리보드 사용
+  - 애플 인증서, 프로비저닝
 
 ---
 
@@ -46,7 +47,9 @@
 
 ### Sign in with apple 로그인 / 로그아웃
 
-- keychain 활용
+- keychain 활용 - 진행중
+
+
 
 ### UserNotification
 
@@ -74,6 +77,7 @@
 ### 사진저장기능
 
 - 여백
+  - 
 
 ---
 
