@@ -14,51 +14,50 @@
 
 
 
-## 2 개발 기술 스펙
+## 2 개발 스펙
 
-
-
-- 로그인
-- 메모
-- 프로필
-- 
-
-- AuthenticationServices framework - Sing In with Apple 기능을 이용한 로그인
-- UITabBarController를 활용한 화면구성
-- WKWebView 사용
-- UITableViewController를 활용한 메모 리스트 구현
-  - cell swipe 기능 구현 / 삭제, notification
-  - UserNotification 사용
-- 메모 CRUD 기능 구현
-  - Core Data 사용
-  - Activity view를 활용한 공유
-  - airBnb Lottie sdk 사용
-  - cocoa pod을 활용한 의존성관리
-- 프로필 화면
-  - 로그아웃 기능
-  - imagePickerController 사용
+- iOS 13
+  - Sign in With apple 기능 사용
+- xCode 11
+- Objective - c
 
 ---
 
 
 
-## 3 시연
+![](./readme_photo/spec.png)
 
-- 영상 대체
+## 3 기술 스펙
+
+| 기능   | 세부내용                                                     | 예정 | 일정        |
+| ------ | ------------------------------------------------------------ | ---- | ----------- |
+| 로그인 | AuthenticationServices framework - Sing In with Apple 기능을 이용한 로그인 | 2    | 20일 ~ 21일 |
+|        | keychain을 통해 로그인 유지                                  | 1    | 25일        |
+|        | 로그아웃                                                     | 1    | 25일        |
+| 메모   | UITableViewController를 활용한 메모 리스트 구현              | 1    | 10일 ~ 11일 |
+|        | Swipe 액션 추가 - notification / 삭제기능                    | 2    | 17일 ~ 18일 |
+|        | CoreData                                                     | 5    | 12일 ~ 16일 |
+|        | Lottie 오픈소스 활용 / cocoapod활용 의존성 관리              | 1    | 24일        |
+|        | Favorite 버튼                                                | 1    | 22일        |
+| 프로필 | ImagePickerController를 사용하여 프로필 사진등록             | 1    | 23일        |
+
+기간 : 2월 10일 ~ 2월 25일
 
 ---
+
+
 
 
 
 ##  4 세부사항
 
-### Sign in with apple 로그인 / 로그아웃
+### 4.1 Sign in with apple 로그인 / 로그아웃
 
 - keychain 활용 - 진행중
 
 
 
-### UserNotification
+### 4.2 UserNotification
 
 - permission의 위치
   - 앱을 처음 사용할 때 알림
