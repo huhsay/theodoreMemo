@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     [self setupProviderLoginView];
 }
@@ -67,7 +66,6 @@
     NSData *authorizationCodeData = credential.authorizationCode;
     NSString *authorizationCode = [[NSString alloc] initWithData:authorizationCodeData encoding:NSUTF8StringEncoding];
     NSString *userID = credential.user;
-    NSString *fullName = credential.fullName;
     
     KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:HJLoginIdentifier accessGroup:nil];
     [keychainItem setObject:userID forKey:(__bridge id)kSecAttrAccount];
@@ -75,8 +73,7 @@
     [self showMainViewController];
 }
 
-- (void)showMainViewController
-{
+- (void)showMainViewController{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
     vc.selectedIndex = 1;

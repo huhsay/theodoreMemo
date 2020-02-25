@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UILabel *memoCountTextField;
 @property (weak, nonatomic) IBOutlet UILabel *favoritCountTextField;
+@property (strong, nonatomic) KeychainItemWrapper *keychainItem;
 
 @end
 
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:HJLoginIdentifier accessGroup:nil];
 
     self.profileImageView.layer.masksToBounds = YES;
     NSLog(@"%f", self.profileImageView.frame.size.width);
@@ -37,7 +39,10 @@
     
     self.paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     self.documentsPath = [self.paths objectAtIndex:0];
-    self.filePath = [self.documentsPath stringByAppendingPathComponent:@"profile.png"];
+    NSString *userID = [self.keychainItem objectForKey:(__bridge id)kSecAttrAccount];
+    NSLog(@"name : %@", userID);
+    self.filePath = [self.documentsPath stringByAppendingPathComponent: [NSString stringWithFormat:@"%@_profile.png", userID]];
+    
 
     if(self.filePath != nil) {
         NSData *pngData = [NSData dataWithContentsOfFile:self.filePath];
@@ -69,8 +74,7 @@
 }
 
 - (IBAction)logout:(id)sender {
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:HJLoginIdentifier accessGroup:nil];
-    [keychainItem resetKeychainItem];
+    [self.keychainItem resetKeychainItem];
     
     UITabBarController *tabBarController = self.tabBarController;
     [tabBarController dismissViewControllerAnimated:NO completion:nil];
