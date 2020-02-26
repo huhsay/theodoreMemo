@@ -1,5 +1,7 @@
 # 메모장 만들기 과제
 
+![](./readme_photo/icon.png)
+
 ## 1 과제 의도
 
 - Objective-C 언어 학습
@@ -84,8 +86,9 @@
 ### 4.3 Lottie 오픈 소스 및 Cocoa pod
 
 - airbnb 에서 제공하는 애니메이션 오픈소스 `Lottie`
-  - https://github.com/airbnb/lottie-android
-
+  
+- https://github.com/airbnb/lottie-android
+  
 - CocoaPod을 활용하여 의존성 관리
 
   - Podfile 파일에 `pod lotties-ios`
@@ -115,18 +118,32 @@
 ### 4.4 새 메모 화면과 수정화면
 
 - 새 메모 화면과 수정화면을 각각의 View를 만들어서 적용
+
+  ![](./readme_photo/saveMemo.png)
+
 - 비슷한 화면이라 한화면으로 만들 수 있을 것 (apple memo앱)
+
+![](./readme_photo/memo.png)
+
 - barButtonItem들이 새 메모 화면과 수정 화면에서 다르게 동작 해야함
   - 메모 변수의 nil 여부에 따라 새 메모와 수정 화면을 파악
     - 액션 버튼과 좋아요 버튼의 경우 위의 경우에 따라 다르게 처리
-  - 저장, 삭제의 경우 새 메모 상황에서 textField가 변경 되었는지 한번더 확인
-    - 변경되었을 경우 저장이나 삭제이벤트 처리
 - 버튼 이벤트마다 해당 코드를 재 작성해야하기 때문에 `(BOOL)isNewMemo`, `(BOOL)isChanged` 메소드로 정의
 - CoreData의 경우 DataManager.h 파일을 SingleTone 패턴으로 적용
 
 
 
-### 4.5 프로필 사진저장
+### 4.5 키보드 상태 변경 / Observer 패턴
+
+- 메모 작성 페이지에서 TextField를 선택시 키보드가 올라옴
+- 메모의 길이가 길 경우 키보드가 메모를 가릴수 있기 때문에 TextField의 사이즈를 조정해 주어야 함
+- NSNotificationCenter addObserverForName: object: queue: usingBlock: 메소드를 이용해서 키보드 상태를 옵저빙함
+- usingBlock에 변경된 키보드 높이만큼 textField와 verticalScroll의 높이를 변경
+- ControllerView 객체 제거 시 observer를 remove함
+
+
+
+### 4.6 프로필 사진저장
 
 - UIImagePickerController를 사용하여 포토 라이브러리에서 사진을 가져옴
 - UIImagePickerControllerDelegate를 구현하 imageView에 저장해주고, 파일 형태로 디렉토리에 저장
