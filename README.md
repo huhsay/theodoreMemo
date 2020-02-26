@@ -14,20 +14,9 @@
 
 
 
-## 2 개발 스펙
-
-- iOS 13
-  - Sign in With apple 기능 사용
-- xCode 11
-- Objective - c
-
----
-
-
+## 2 기술 스펙
 
 ![](./readme_photo/spec.png)
-
-## 3 기술 스펙
 
 | 기능   | 세부내용                                                     | 예정 | 일정        |
 | ------ | ------------------------------------------------------------ | ---- | ----------- |
@@ -47,51 +36,104 @@
 
 
 
+## 3 개발 스펙
+
+- iOS 13
+  - Sign in With apple 기능 사용
+- xCode 11
+- Objective - c
+
+---
+
 
 
 ##  4 세부사항
 
 ### 4.1 Sign in with apple 로그인 / 로그아웃
 
-- keychain 활용 - 진행중
+- Sign in 성공시 keychain에 user_id 저장
+
+- 로그아웃 시 keychain에 user_id 삭제
+
+- 첫화면 시작시 keychahin 확인하여 있으면 tabbarController로 이동
+
+  ![](./readme_photo/auth.png)
 
 
 
 ### 4.2 UserNotification
 
 - permission의 위치
-  - 앱을 처음 사용할 때 알림
-  - 알림이 어떤 기능을 사용할 때 필요한지 알리기 쉽게 적절한 위치에 퍼미션을 요청
-  - ![image-20200225110255553](/Users/theodore/Library/Application Support/typora-user-images/image-20200225110255553.png)
-  - 가이드에 맞춰 앱 실행 초반에 퍼미선 요청을 swipe로 사용하여 처음 notification을 보낼때 퍼미션을 요청하도록 변경
-- 여백
+  - 앱에서 해당 기능을 처음 사용할 때 알림
+  - 어떤 동작때 해당 기능이 사용되는지 알려주기 위해 적절한 곳에 위치
+  
+  ![image-20200225110255553](./readme_photo/permission.png)
+  
+  - 처음에는 앱 실행시 퍼미션을 요청했지만 가이드에 맞춰 swipe 동작 이후에 퍼미션
+  
+- Foreground 상황에서 LocalNotification
+
+  - `UNuserNotificationCenterDelegate` 를 구현하여 foreground 상태에서도 noti를 받을 수 있도록 처리
+
+    ![](./readme_photo/noti.png)
+
+    ![](./readme_photo/UNUserNotificationCenterDelegate.png)
 
 
 
-### CocoaPod 설정 및 Lottie sdk
+### 4.3 Lottie 오픈 소스 및 Cocoa pod
+
+- airbnb 에서 제공하는 애니메이션 오픈소스 `Lottie`
+  - https://github.com/airbnb/lottie-android
 
 - CocoaPod을 활용하여 의존성 관리
 
-  - ![image-20200225110445345](/Users/theodore/Library/Application Support/typora-user-images/image-20200225110445345.png)
-  - Lottie 가이드 문서에서는 podfile에 `pod 'lottie-ios'` 를 작성하고 `pod install`을 실행 하라고 가이드
-  - 가이드 처럼 작성하게 되면 최신의 마스터를 가져오는 문제가 있음
-  - 3.0 버전부터는 swift로 대체 되었기 때문에 objectiv-c를 지원하는 2.x의 브랜치 필요
+  - Podfile 파일에 `pod lotties-ios`
+  - `pod install`
+  - 현재 3.x 버전은 swif로 모두 변경된 상태, 때문에 objective-c를 지원하는 2.x 파일을 다운 받아야 함.
+
+  ![image-20200225110445345](./readme_photo/lottie-pod.png)
+
   - 위와 같이 podlist를 작성해 주어 objectiv-c에서 활용할 수 있도록 수정
 
-  
+- 사용방법
 
-### 사진저장기능
+  ```objective-c
+  LOTAnimationView *animation = [[LOTAnimationView alloc] initWithContentsOfURL:[NSURL URLWithString:URL]];
+  [self.view addSubview:animation];
+  [animation playWithCompletion:^(BOOL animationFinished) {
+    // Do Something
+  }];
+  ```
 
-- 여백
-  - 
+- 적용
+
+  ![](./readme_photo/lottie.gif)
+
+
+
+### 4.4 새 메모 화면과 수정화면
+
+- 새 메모 화면과 수정화면을 각각의 View를 만들어서 적용
+- 비슷한 화면이라 한화면으로 만들 수 있을 것 (apple memo앱)
+- barButtonItem들이 새 메모 화면과 수정 화면에서 다르게 동작 해야함
+  - 메모 변수의 nil 여부에 따라 새 메모와 수정 화면을 파악
+    - 액션 버튼과 좋아요 버튼의 경우 위의 경우에 따라 다르게 처리
+  - 저장, 삭제의 경우 새 메모 상황에서 textField가 변경 되었는지 한번더 확인
+    - 변경되었을 경우 저장이나 삭제이벤트 처리
+- 버튼 이벤트마다 해당 코드를 재 작성해야하기 때문에 `(BOOL)isNewMemo`, `(BOOL)isChanged` 메소드로 정의
+- CoreData의 경우 DataManager.h 파일을 SingleTone 패턴으로 적용
+
+
+
+### 4.5 프로필 사진저장
+
+- UIImagePickerController를 사용하여 포토 라이브러리에서 사진을 가져옴
+- UIImagePickerControllerDelegate를 구현하 imageView에 저장해주고, 파일 형태로 디렉토리에 저장
+- 파일이름을 KeyCahin에 저장된 user_id를 사용하여 저장
+- Profile ViewController가 실행될때 user_id에 해당하는 파일을 load
 
 ---
-
-
-
-## 5 회고
-
-> 여백
 
 
 
