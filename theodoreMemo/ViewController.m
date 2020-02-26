@@ -38,7 +38,8 @@
 }
 
 - (void) setupProviderLoginView {
-    ASAuthorizationAppleIDButton *appleLoginButton = [ASAuthorizationAppleIDButton new];
+    ASAuthorizationAppleIDButton *appleLoginButton = [[ASAuthorizationAppleIDButton alloc] initWithAuthorizationButtonType:ASAuthorizationAppleIDButtonTypeSignIn authorizationButtonStyle:ASAuthorizationAppleIDButtonStyleWhite];
+    [appleLoginButton setCornerRadius:20];
     [appleLoginButton addTarget:self action:@selector(handleAuthorizationAppleIDButtonPress) forControlEvents:UIControlEventTouchUpInside];
     
     [self.loginButtonStackView addArrangedSubview:appleLoginButton];

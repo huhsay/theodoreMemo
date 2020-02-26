@@ -16,8 +16,6 @@
 
 
 
-
-
 ## 2 기술 스펙
 
 ![](./readme_photo/spec.png)
@@ -45,7 +43,7 @@
 ## 3 개발 스펙
 
 - iOS 13
-  - Sign In With Apple 기능 사용
+  - Sign In with Apple 기능 사용
 - Xcode 11
 - Objective - c
 
@@ -55,7 +53,7 @@
 
 ##  4 세부사항
 
-### 4.1 Sign In With Apple 로그인 / 로그아웃
+### 4.1 Sign In with Apple 로그인 / 로그아웃
 
 - Sign In 성공시 keychain에 user_id 저장
 
@@ -73,7 +71,7 @@
   - 앱에서 해당 기능을 처음 사용할 때 알림
   - 어떤 동작때 해당 기능이 사용되는지 알려주기 위해 적절한 곳에 위치
   
-  ![image-20200225110255553](./readme_photo/permission.png)
+    ![image-20200225110255553](./readme_photo/permission.png)
   
   - 처음에는 앱 실행시 퍼미션을 요청했지만 가이드에 맞춰 swipe 동작 이후에 퍼미션
   
@@ -99,11 +97,9 @@
   - `pod install`
   - 현재 3.x 버전은 swift로 모두 변경된 상태, 때문에 objective-c를 지원하는 2.x 파일을 다운 받아야 함.
 
-  ![image-20200225110445345](./readme_photo/lottie-pod.png)
+    ![image-20200225110445345](./readme_photo/lottie-pod.png)
 
   - 위와 같이 podlist를 작성해 주어 objective-c에서 활용할 수 있도록 수정
-
-
 
 
 - 사용방법
@@ -129,7 +125,7 @@
 
 - 새 메모 화면과 수정화면을 각각의 View를 만들어서 적용
 
-![](./readme_photo/saveMemo.png)
+  ![](./readme_photo/saveMemo.png)
 
 - 비슷한 화면이라 한화면으로 만들 수 있을 것 (apple memo앱)
 
@@ -145,8 +141,6 @@
 
 
 
-
-
 ### 4.5 키보드 상태 변경 / Observer 패턴
 
 - 메모 작성 페이지에서 TextField를 선택시 키보드가 올라옴
@@ -154,8 +148,6 @@
 - NSNotificationCenter addObserverForName: object: queue: usingBlock: 메소드를 이용해서 키보드 상태를 옵저빙함
 - usingBlock에 변경된 키보드 높이만큼 textField와 verticalScroll의 높이를 변경
 - ControllerView 객체 제거 시 observer를 remove함
-
-
 
 
 
